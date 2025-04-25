@@ -23,6 +23,13 @@ class Snake:
         new_snake.goto(position)
         self.snake_parts.append(new_snake)
 
+    def reset(self):
+        for seg in self.snake_parts:
+            seg.goto(1000,1000)
+        self.snake_parts.clear()
+        self.create_snake()
+        self.head = self.snake_parts[0]
+
     def extend(self):
         self.add_segment(self.snake_parts[-1].position())
 
